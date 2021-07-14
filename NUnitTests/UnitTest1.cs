@@ -1,4 +1,6 @@
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Collections.Generic;
 
 namespace NUnitTests
 {
@@ -6,7 +8,7 @@ namespace NUnitTests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void SingleNumberTest()
         {
         }
     }
