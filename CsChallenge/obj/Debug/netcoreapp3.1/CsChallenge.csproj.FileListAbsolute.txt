@@ -1,0 +1,13 @@
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\bin\Debug\netcoreapp3.1\CsChallenge.exe
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\bin\Debug\netcoreapp3.1\CsChallenge.deps.json
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\bin\Debug\netcoreapp3.1\CsChallenge.runtimeconfig.json
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\bin\Debug\netcoreapp3.1\CsChallenge.runtimeconfig.dev.json
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\bin\Debug\netcoreapp3.1\CsChallenge.dll
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\bin\Debug\netcoreapp3.1\CsChallenge.pdb
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.csprojAssemblyReference.cache
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.AssemblyInfoInputs.cache
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.AssemblyInfo.cs
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.csproj.CoreCompileInputs.cache
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.dll
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.pdb
+D:\UofT\Uken\Challenges\CsChallenge\CsChallenge\obj\Debug\netcoreapp3.1\CsChallenge.genruntimeconfig.cache
