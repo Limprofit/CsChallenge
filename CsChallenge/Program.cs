@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CsChallenge
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -17,7 +17,7 @@ namespace CsChallenge
 
                 var pair = FindLeastFrequent(dict);
 
-                Console.WriteLine("File: {0}, Number: {1}, Repeated: {2} times", filename[(filename.LastIndexOf('\\') + 1)..], pair.Item1, pair.Item2);
+                Console.WriteLine("File: {0}, Number: {1}, Repeated: {2} times", filename[(filename.LastIndexOf('\\') + 1)..], pair.Item1, pair.Item2);                
             }
 
             Console.ReadLine();
@@ -32,7 +32,7 @@ namespace CsChallenge
             int num;
             Dictionary<int, int> dict = new Dictionary<int, int>();
             StreamReader file = new StreamReader(filename);
-
+            
             // Read every line until EOF
             while ((line = file.ReadLine()) != null)
             {

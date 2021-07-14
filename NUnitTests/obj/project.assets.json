@@ -1634,6 +1634,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
+      },
+      "CsChallenge/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/CsChallenge.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CsChallenge.dll": {}
+        }
       }
     }
   },
@@ -5706,10 +5716,16 @@
         "system.xml.xdocument.4.3.0.nupkg.sha512",
         "system.xml.xdocument.nuspec"
       ]
+    },
+    "CsChallenge/1.0.0": {
+      "type": "project",
+      "path": "../CsChallenge/CsChallenge.csproj",
+      "msbuildProject": "../CsChallenge/CsChallenge.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "CsChallenge >= 1.0.0",
       "MSTest.TestAdapter >= 2.1.1",
       "MSTest.TestFramework >= 2.1.1",
       "Microsoft.NET.Test.Sdk >= 16.7.1",
@@ -5747,7 +5763,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\UofT\\Uken\\Challenges\\CsChallenge\\CsChallenge\\CsChallenge.csproj": {
+              "projectPath": "D:\\UofT\\Uken\\Challenges\\CsChallenge\\CsChallenge\\CsChallenge.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
