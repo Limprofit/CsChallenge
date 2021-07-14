@@ -13,11 +13,25 @@ namespace CsChallenge
             // Iterate over each file in the src folder
             foreach (string filename in Directory.GetFiles(path))
             {
-                Dictionary<int, int> dict = CreateFreqDict(filename);
+                // Check for empty file
+                if (new FileInfo(filename).Length == 0)
+                {
+                    Console.WriteLine("File {0} is empty, it will be skipped.", GetFileName(filename));
+                    continue;
+                }
+
+                (Dictionary<int, int> dict, bool isFileCorrupted) = CreateFreqDict(filename);
+
+                // Skip corrupted file
+                if (isFileCorrupted)
+                    continue;
 
                 var pair = FindLeastFrequent(dict);
 
-                Console.WriteLine("File: {0}, Number: {1}, Repeated: {2} times", filename[(filename.LastIndexOf('\\') + 1)..], pair.Item1, pair.Item2);                
+                if (pair.Item2 == 1)
+                    Console.WriteLine("File: {0}, Number: {1}, Repeated: {2} time", GetFileName(filename), pair.Item1, pair.Item2);
+                else
+                    Console.WriteLine("File: {0}, Number: {1}, Repeated: {2} times", GetFileName(filename), pair.Item1, pair.Item2);
             }
 
             Console.ReadLine();
@@ -26,27 +40,47 @@ namespace CsChallenge
         // Take a file, open it, and create a dictionary composed of the numbers as keys,
         // and how many times each number occurs as values. Return the dictionary and
         // a boolean indicating if there was an error opening the file
-        public static Dictionary<int, int> CreateFreqDict(string filename)
+        public static (Dictionary<int, int>, bool) CreateFreqDict(string filename)
         {
             string line;
             int num;
             Dictionary<int, int> dict = new Dictionary<int, int>();
-            StreamReader file = new StreamReader(filename);
-            
-            // Read every line until EOF
-            while ((line = file.ReadLine()) != null)
+
+            try
             {
-                num = Int32.Parse(line);
+                using StreamReader file = new StreamReader(filename);
+            
+                // Read every line until EOF
+                while ((line = file.ReadLine()) != null)
+                {
+                    try
+                    {
+                        num = Int32.Parse(line);
+                        // TryGetValue has a slight edge over HasKey for trying to access unexisting keys.
+                        // Since a dictionary is being created from scratch, TryGetValue is slightly more efficient.
+                        if (dict.TryGetValue(num, out _))
+                            dict[num] += 1;
+                        else
+                            dict.Add(num, 1);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Unable to convert '{0}' in file {1}, line will be ignored.", line, GetFileName(filename));
+                    }
+                    catch (OverflowException)
+                    {
+                        Console.WriteLine("'{0}' in file {1} is out of range of the Int32 type, it will be ignored.", line, GetFileName(filename));
+                    }
+                }
 
-                // Add key to dictionary or increase count
-                if (dict.ContainsKey(num))
-                    dict[num] += 1;
-                else
-                    dict.Add(num, 1);
+                file.Close();
+                return (dict, false);
             }
-
-            file.Close();
-            return dict;
+            catch (IOException)
+            {
+                Console.WriteLine("Could not open file {0}.", filename);
+                return (new Dictionary<int, int>(), true);
+            }
         }
 
         // Find the key in a dictionary with the lowest frequency count. 
@@ -84,6 +118,11 @@ namespace CsChallenge
             }
 
             return (leastFrequentKey, frequency);
+        }
+    
+        public static string GetFileName(string file)
+        {
+            return file[(file.LastIndexOf('\\') + 1)..];
         }
     }
 }
